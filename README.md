@@ -2,7 +2,7 @@
 
 닷지 게임 현대적으로 재해석하기
 
-노션 페이지 (https://www.notion.so/14-1f776af07f7a4b308144adbb817c639b)
+노션 페이지 (https://teamsparta.notion.site/14-1f776af07f7a4b308144adbb817c639b)
 
 - 프로젝트 명 :  CodingPlease(가제)
 - 프로젝트 소개 :
