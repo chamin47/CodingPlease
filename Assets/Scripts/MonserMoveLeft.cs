@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MonserMoveLeft : MonoBehaviour
 {
+    public GameObject bullet;
     // Start is called before the first frame update
     void Start()
     {
@@ -11,6 +12,8 @@ public class MonserMoveLeft : MonoBehaviour
         float y = Random.Range(-4.3f, 4.5f);
 
         transform.position = new Vector3(x, y, 0);
+
+        InvokeRepeating("ShootingBullet", 0.0f, 0.5f);
 
     }
 
@@ -22,5 +25,12 @@ public class MonserMoveLeft : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void ShootingBullet()
+    {
+        float x = this.transform.position.x;
+        float y = this.transform.position.y;
+        Instantiate(bullet, new Vector3(x, y, 0), Quaternion.identity);
     }
 }
