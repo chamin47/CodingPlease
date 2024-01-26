@@ -5,7 +5,8 @@ using UnityEngine;
 public class MonserMoveLeft : MonoBehaviour
 {
     public GameObject bullet;
-    // Start is called before the first frame update
+    //public Transform TestTarget { get; set; }
+
     void Start()
     {
         float x = -9.3f;
@@ -17,7 +18,6 @@ public class MonserMoveLeft : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.position += new Vector3(0.03f, 0, 0);
@@ -25,6 +25,8 @@ public class MonserMoveLeft : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        //Debug.Log(TargetPosition().ToString());
     }
 
     void ShootingBullet()
@@ -33,4 +35,9 @@ public class MonserMoveLeft : MonoBehaviour
         float y = this.transform.position.y;
         Instantiate(bullet, new Vector3(x, y, 0), Quaternion.identity);
     }
+
+    // public Vector2 TargetPosition()
+    //{
+    //    return (TestTarget.position);
+    //}
 }
