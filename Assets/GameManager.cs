@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 	public static GameManager instance = null;
+	public GameObject gameoverUI;
 
 	private void Awake()
 	{
@@ -23,6 +24,15 @@ public class GameManager : MonoBehaviour
 
 		// 다른 씬으로 넘어가더라도 삭제하지 않고 유지함
 		DontDestroyOnLoad(this.gameObject);
+	}
+	private void Start()
+	{
+		// GameOver();
+	}
+
+	public void GameOver()
+	{
+		gameoverUI.SetActive(true);
 	}
 
 	public void RestartGame()
