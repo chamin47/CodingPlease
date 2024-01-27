@@ -4,8 +4,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum GameState
+{
+	Ready,
+	Play,
+	End
+}
+
 public class GameManager : MonoBehaviour
 {
+	public GameState State;
 	public static GameManager instance = null;
 	public GameObject gameoverUI;
 
