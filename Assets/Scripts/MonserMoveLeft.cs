@@ -5,6 +5,7 @@ using UnityEngine;
 public class MonserMoveLeft : MonoBehaviour
 {
     public GameObject bullet;
+    public GameObject bulletPosition;
     //public Transform TestTarget { get; set; }
 
     void Start()
@@ -31,9 +32,10 @@ public class MonserMoveLeft : MonoBehaviour
 
     void ShootingBullet()
     {
-        float x = this.transform.position.x;
-        float y = this.transform.position.y;
-        Instantiate(bullet, new Vector3(x, y, 0), Quaternion.identity);
+        // float x = this.transform.position.x;
+        // float y = this.transform.position.y;
+        Vector2 position = bulletPosition.transform.position;
+        Instantiate(bullet, position, Quaternion.identity);
     }
 
     // public Vector2 TargetPosition()
