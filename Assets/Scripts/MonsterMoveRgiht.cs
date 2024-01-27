@@ -23,6 +23,5 @@ public class MonsterMoveRgiht : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 }
