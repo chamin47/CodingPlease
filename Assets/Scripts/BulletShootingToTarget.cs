@@ -52,6 +52,7 @@ public class BulletShootingToTarget : MonoBehaviour
 		{
 			Destroy(other.gameObject);
 			Destroy(gameObject);
+			GameManager.instance.GameOver();
 		}
 	}
 }

@@ -17,4 +17,13 @@ public class PlayerMove : MonoBehaviour
 
 		transform.Translate( dir * speed * Time.deltaTime);
 	}
+
+	private void OnCollisionEnter2D(Collision2D other)
+	{
+		if (other.gameObject.CompareTag("Wall"))
+		{
+			Destroy(gameObject);
+			GameManager.instance.GameOver();
+		}
+	}
 }

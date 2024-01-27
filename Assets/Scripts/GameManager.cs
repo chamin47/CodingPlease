@@ -25,11 +25,7 @@ public class GameManager : MonoBehaviour
 		// 다른 씬으로 넘어가더라도 삭제하지 않고 유지함
 		DontDestroyOnLoad(this.gameObject);
 	}
-	private void Start()
-	{
-		// GameOver();
-	}
-
+	
 	public void GameOver()
 	{
 		gameoverUI.SetActive(true);
