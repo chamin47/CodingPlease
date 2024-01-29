@@ -15,8 +15,6 @@ public enum GameState
 public class GameManager : MonoBehaviour
 {
 	public GameState State;
-	public GameObject monster;
-	public float createTime = 3.0f;    // 몬스터의 생성 간격
 	public static GameManager instance = null;
 	public GameObject gameoverUI;
 	public TextMeshProUGUI currentScoreUI;    // 현재 점수 UI
@@ -38,12 +36,7 @@ public class GameManager : MonoBehaviour
 		// 다른 씬으로 넘어가더라도 삭제하지 않고 유지함
 		DontDestroyOnLoad(this.gameObject);
 	}
-
-	private void Start()
-	{
-		InvokeRepeating("CreateMonster", 2.0f, createTime);
-	}
-
+	
 	public void GameOver()
 	{
 		gameoverUI.SetActive(true);
@@ -57,10 +50,5 @@ public class GameManager : MonoBehaviour
 	public void ExitGame()
 	{
 		Application.Quit();
-	}
-
-	public void CreateMonster()
-	{
-		Instantiate(monster);
 	}
 }
