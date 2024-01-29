@@ -14,7 +14,7 @@ public enum GameState
 
 public class GameManager : MonoBehaviour
 {
-	public GameState State;
+	public GameState State = GameState.Ready; // 게임 상태 초기화
 	public GameObject monster;
 	public float createTime = 3.0f;    // 몬스터의 생성 간격
 	public static GameManager instance = null;
@@ -38,16 +38,19 @@ public class GameManager : MonoBehaviour
 
 	private void Start()
 	{
+		State = GameState.Play; // 게임 시작 시 상태를 Play로 변경
 		InvokeRepeating("CreateMonster", 2.0f, createTime);
 	}
 
 	public void GameOver()
 	{
+		State = GameState.End; // 게임 오버 시 상태를 End로 변경
 		gameoverUI.SetActive(true);
 	}
 
 	public void RestartGame()
 	{
+		State = GameState.Play;  // 게임 재시작 시 상태를 Play로 변경
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
@@ -58,6 +61,10 @@ public class GameManager : MonoBehaviour
 
 	public void CreateMonster()
 	{
-		Instantiate(monster);
+		if (State == GameState.Play) // 게임 상태가 Play일 때만 몬스터 생성
+		{
+			Instantiate(monster);
+		}
+		
 	}
 }
