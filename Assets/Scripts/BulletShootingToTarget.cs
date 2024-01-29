@@ -28,7 +28,7 @@ public class BulletShootingToTarget : MonoBehaviour
 	void Start()
 	{
 		target = GameObject.Find("Player");
-		if (target == null)
+		if (target != null)
 		{
 			transform.eulerAngles = new Vector3(0f, 0f, getAngle(transform.position.x, transform.position.y, target.transform.position.x, target.transform.position.y));
 		}
