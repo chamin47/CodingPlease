@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("회전속도 조절")]
-    [SerializeField][Range(1f, 150f)] float rotateSpeed = 30f;
+    [SerializeField][Range(1f, 150f)] float rotateSpeed = 150f;
 
     [Header("속도 조절")]
     [SerializeField][Range(1f, 10f)] float speed = 3f;
@@ -58,18 +58,27 @@ public class PlayerMovement : MonoBehaviour
             // 부스트, 브레이크 기능 구현
             if (vector.y > 0)
             {
-                rigidbody2D.velocity = transform.up * (speed + fast);
+                rigidbody2D.velocity = transform.right * (speed + fast);
             }
             else if (vector.y < 0)
             {
-                rigidbody2D.velocity = transform.up * (speed - slow);
+                rigidbody2D.velocity = transform.right * (speed - slow);
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+            GameManager.instance.GameOver();
         }
     }
 
     void FixedUpdate()
     {
-        rigidbody2D.velocity = transform.up * speed;
+        //rigidbody2D.velocity = transform.right * speed;
         Movement(moveVector);
     }
 }

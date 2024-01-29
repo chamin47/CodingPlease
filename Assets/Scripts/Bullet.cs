@@ -5,9 +5,21 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-	private float speed = 10.0f;
-	private void Update()
-	{
-		transform.Translate(Vector2.right * speed * Time.deltaTime);
-	}
+    [Header("ÃÑ¾Ë ¼Óµµ")]
+    [SerializeField][Range(1, 10)] float speed = 5f;
+
+    private void Start()
+    {
+        Invoke("DestroyBullet", 2);
+    }
+
+    private void Update()
+    {
+        transform.Translate(Vector2.right * speed * Time.deltaTime);
+    }
+
+    void DestroyBullet()
+    {
+        Destroy(gameObject);
+    }
 }
