@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MonsterController : MonoBehaviour
 {
-    public GameObject bullet;
+    public GameObject bulletPrefab;
     public GameObject bulletPosition;
    
     Vector3 direction;
@@ -51,6 +51,7 @@ public class MonsterController : MonoBehaviour
 
     void ShootingBullet()
     {
+        GameObject bullet = bulletPrefab;
         Vector2 position = bulletPosition.transform.position;
         Instantiate(bullet, position, Quaternion.identity);
     }
