@@ -30,8 +30,8 @@ public class MonsterController : MonoBehaviour
     void SpawnPosition()
     {
         float[] randomX = new float[] { 9.3f, -9.3f };
-        Random.Range(0, randomX.Length);
-        if (Random.Range(0, randomX.Length) == 0)
+        int rndX = Random.Range(0, randomX.Length);
+        if (rndX   == 0)
         {
             float x = randomX[0];
             float y = Random.Range(-4.3f, 4.5f);
@@ -39,7 +39,7 @@ public class MonsterController : MonoBehaviour
 
             direction = new Vector3(-speed, 0, 0);
         }
-        else if (Random.Range(0, randomX.Length) == 1)
+        else
         {
             float x = randomX[1];
             float y = Random.Range(-4.3f, 4.5f);
