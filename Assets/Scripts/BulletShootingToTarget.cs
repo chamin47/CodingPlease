@@ -32,15 +32,14 @@ public class BulletShootingToTarget : MonoBehaviour
 		{
 			transform.eulerAngles = new Vector3(0f, 0f, getAngle(transform.position.x, transform.position.y, target.transform.position.x, target.transform.position.y));
 		}
-		
+
+		Invoke("DestroyBullet", 4.0f);
+
 	}
 
 	void Update()
 	{
-		if (target != null)
-		{
-			transform.Translate(Vector2.right * speed * Time.deltaTime);
-		}
+		transform.Translate(Vector2.right * speed * Time.deltaTime);
 	}
 
 	float getAngle(float x1, float y1, float x2, float y2)
@@ -61,5 +60,10 @@ public class BulletShootingToTarget : MonoBehaviour
 			Destroy(gameObject);
 			GameManager.instance.GameOver();
 		}
+	}
+
+	void DestroyBullet()
+	{
+		Destroy(gameObject);
 	}
 }
