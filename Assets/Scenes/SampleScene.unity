@@ -757,7 +757,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 213204180}
-  - component: {fileID: 213204179}
   m_Layer: 0
   m_Name: MonsterManager
   m_TagString: Untagged
@@ -765,19 +764,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &213204179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 213204178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ee38a9a38f64e241b4ee1923693db57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  monster: {fileID: 4471912352326234340, guid: b649c196db83dd5429708ad94e7f8848, type: 3}
 --- !u!4 &213204180
 Transform:
   m_ObjectHideFlags: 0
@@ -2571,6 +2557,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 0
+  monster: {fileID: 4471912352326234340, guid: b649c196db83dd5429708ad94e7f8848, type: 3}
+  createTime: 3
   gameoverUI: {fileID: 223885277}
   currentScoreUI: {fileID: 2114764946}
   currentScore: 0
