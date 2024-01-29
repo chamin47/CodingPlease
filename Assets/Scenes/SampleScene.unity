@@ -1719,10 +1719,12 @@ GameObject:
   m_Component:
   - component: {fileID: 961731496}
   - component: {fileID: 961731495}
-  - component: {fileID: 961731498}
   - component: {fileID: 961731499}
   - component: {fileID: 961731500}
+  - component: {fileID: 961731503}
+  - component: {fileID: 961731502}
   - component: {fileID: 961731501}
+  - component: {fileID: 961731498}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1810,7 +1812,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5719e28372d09a1439c5ca22f18688a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefabs: {fileID: 3742358409368556989, guid: d3c7cd12c6bcb394b9e107043bb2fc55, type: 3}
+  coolTime: 0.2
+  bulletPrefab: {fileID: 3742358409368556989, guid: d3c7cd12c6bcb394b9e107043bb2fc55, type: 3}
   firePosition: {fileID: 1888079139}
 --- !u!50 &961731499
 Rigidbody2D:
@@ -1883,11 +1886,55 @@ MonoBehaviour:
   m_GameObject: {fileID: 961731494}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ff77adf91a40141becbd9f11ca5bf6, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a518f15ee6f32440bfb5a682bb4a557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSpeed: 90
-  moveSpeed: 5
+  rotateSpeed: 150
+  speed: 3
+  fast: 2
+  slow: 2
+--- !u!114 &961731502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961731494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 9ced2c2be5b99294bab02d9153e6221d, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &961731503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961731494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75e6aee3501d92a488c8f6526c83ceec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1074334456
 GameObject:
   m_ObjectHideFlags: 0
