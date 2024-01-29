@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Net.Sockets;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public enum GameState
@@ -16,6 +17,8 @@ public class GameManager : MonoBehaviour
 	public GameState State;
 	public static GameManager instance = null;
 	public GameObject gameoverUI;
+	public TextMeshProUGUI currentScoreUI;    // 현재 점수 UI
+	public int currentScore;       // 현재 점수
 
 	private void Awake()
 	{

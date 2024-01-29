@@ -38,8 +38,21 @@ public class MonserMoveLeft : MonoBehaviour
         Instantiate(bullet, position, Quaternion.identity);
     }
 
-    // public Vector2 TargetPosition()
-    //{
-    //    return (TestTarget.position);
-    //}
+	// public Vector2 TargetPosition()
+	//{
+	//    return (TestTarget.position);
+	//}
+
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.gameObject.CompareTag("Bullet"))
+		{
+			Destroy(other.gameObject);
+			Destroy(gameObject);
+            GameObject gmObject = GameObject.Find("GameMgr");
+            GameManager gm = gmObject.GetComponent<GameManager>();
+            gm.currentScore++;
+            gm.currentScoreUI.text = gm.currentScore.ToString();
+		}
+	}
 }

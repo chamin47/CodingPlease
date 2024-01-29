@@ -3264,6 +3264,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   State: 0
   gameoverUI: {fileID: 223885277}
+  currentScoreUI: {fileID: 2114764946}
+  currentScore: 0
 --- !u!4 &1580297026
 Transform:
   m_ObjectHideFlags: 0
