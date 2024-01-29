@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class MonsterManager : MonoBehaviour
 {
-    public GameObject monsterRight;
-    public GameObject monsterLeft;
+    public GameObject monster;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(monsterRight);
-        Instantiate(monsterLeft);
+        Instantiate(monster);
 
     }
 
