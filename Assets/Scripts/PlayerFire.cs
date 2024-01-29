@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerFire : MonoBehaviour
 {  
-    public float coolTime;
+    public float coolTime = 0.2f;
     private float curTime;
 
     public GameObject bulletPrefab;

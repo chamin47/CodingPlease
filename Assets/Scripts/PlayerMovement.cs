@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        //rigidbody2D.velocity = transform.right * speed;
+        rigidbody2D.velocity = transform.right * speed;
         Movement(moveVector);
     }
 }
