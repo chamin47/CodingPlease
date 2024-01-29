@@ -12,11 +12,6 @@ public class PlayerInputController : CharacterController
         Vector2 moveInput = value.Get<Vector2>();
         CallMoveEvent(moveInput);
     }
-
-    public void OnFire(InputValue value)
-    {
-        IsAttacking = value.isPressed;
-    }
 }
 
 
