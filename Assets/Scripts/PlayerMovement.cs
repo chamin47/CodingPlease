@@ -53,22 +53,23 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (vector.y > 0)
+        if (vector.y != 0)
         {
-            // 부스트 기능 구현
-            rigidbody2D.velocity = transform.up * (speed + fast);
-        }
-
-        if (vector.y < 0)
-        {
-            // 브레이크 기능 구현 혹은 호출
-            rigidbody2D.velocity = transform.up * (speed - slow);
+            // 부스트, 브레이크 기능 구현
+            if (vector.y > 0)
+            {
+                rigidbody2D.velocity = transform.up * (speed + fast);
+            }
+            else if (vector.y < 0)
+            {
+                rigidbody2D.velocity = transform.up * (speed - slow);
+            }
         }
     }
 
     void FixedUpdate()
     {
-        Movement(moveVector);
         rigidbody2D.velocity = transform.up * speed;
+        Movement(moveVector);
     }
 }
