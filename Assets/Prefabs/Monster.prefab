@@ -215,9 +215,9 @@ GameObject:
   - component: {fileID: 8103495116649777981}
   - component: {fileID: 6497291570265831318}
   - component: {fileID: 3489067171215679600}
-  - component: {fileID: 7039399791581542401}
+  - component: {fileID: 369302143548909733}
   m_Layer: 0
-  m_Name: LeftSpawnMonster
+  m_Name: Monster
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -364,7 +364,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7039399791581542401
+--- !u!114 &369302143548909733
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4471912352326234340}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1575238f6579fd468207753ec90edfb, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e4662bcde07b974688b2c20277ecdf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1525442361438806614}
