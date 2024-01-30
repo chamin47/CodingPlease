@@ -45,6 +45,10 @@ public class PlayerFire : MonoBehaviour
 		foreach (var enemy in enemies)
 		{
 			Destroy(enemy);
+			GameObject gmObject = GameObject.Find("GameMgr");
+			GameManager gm = gmObject.GetComponent<GameManager>();
+			gm.killScore++;
+			gm.killScoreUI.text = gm.killScore.ToString();
 		}
 
 		GameObject[] bullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
