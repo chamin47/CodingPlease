@@ -12,6 +12,7 @@ public enum GameState
 
 public class GameManager : MonoBehaviour
 {
+	public AudioClip clip;
 	public GameState State = GameState.Ready; // 게임 상태 초기화
 	public GameObject monster;
 	public float createTime = 3.0f;    // 몬스터의 생성 간격
@@ -70,8 +71,9 @@ public class GameManager : MonoBehaviour
 		{
 			life--;
 			UpdateLifeUI();
-		}
-	}
+            SoundManager.instance.SFXPlay3("collision", clip);
+        }
+    }
 
 	public void UpdateLifeUI()
 	{
