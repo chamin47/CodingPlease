@@ -2318,6 +2318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coolTime: 0.2
   clip: {fileID: 8300000, guid: 4310474905e266640852f43bd609a1a4, type: 3}
+  clip2: {fileID: 8300000, guid: 78419f98379502c4dbfb2774bc94e7c1, type: 3}
   bulletPrefab: {fileID: 3742358409368556989, guid: d3c7cd12c6bcb394b9e107043bb2fc55, type: 3}
   firePosition: {fileID: 1888079139}
 --- !u!50 &961731499
@@ -2398,6 +2399,7 @@ MonoBehaviour:
   speed: 3
   fast: 2
   slow: 2
+  clip: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
 --- !u!114 &961731502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3253,6 +3255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5598d26f036fb8043bb634bac78ed2d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
   State: 0
   monster: {fileID: 4471912352326234340, guid: b649c196db83dd5429708ad94e7f8848, type: 3}
   easyMonster: {fileID: 4471912352326234340, guid: 66392886fa34ea649aaa42b1e4e39948, type: 3}
