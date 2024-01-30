@@ -14,4 +14,10 @@ public class ButtonController : MonoBehaviour
     {
         Application.Quit();
     }
+
+	public void ResetPlayerPrefs()
+	{
+		PlayerPrefs.DeleteAll();
+		PlayerPrefs.Save();
+	}
 }
