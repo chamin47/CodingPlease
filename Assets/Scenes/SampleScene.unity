@@ -3255,6 +3255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   State: 0
   monster: {fileID: 4471912352326234340, guid: b649c196db83dd5429708ad94e7f8848, type: 3}
+  easyMonster: {fileID: 4471912352326234340, guid: 66392886fa34ea649aaa42b1e4e39948, type: 3}
   createTime: 3
   gameoverUI: {fileID: 223885277}
   currentScoreUI: {fileID: 2114764946}
