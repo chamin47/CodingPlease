@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class HelpItem : MonoBehaviour
 {
-	private void OnTriggerEnter(Collider other)
+	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.CompareTag("Player"))
+		if (other.gameObject.CompareTag("Player"))
 		{
 			GameManager.instance.clearAbilityCount++;
 			Destroy(gameObject);
+			Debug.Log(GameManager.instance.clearAbilityCount);
 		}
 	}
 }

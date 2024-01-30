@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 		if (life == 0)
 		{
 			GameOver();
-		}		
+		}
 	}
 
 	public void UseClearAbility()
