@@ -71,7 +71,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-            Destroy(gameObject);
             GameManager.instance.GameOver();
         }
     }

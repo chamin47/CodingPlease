@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MonsterController : MonoBehaviour
 {
-    public AudioClip clip;
     public GameObject bulletPrefab;
     public GameObject bulletPosition;
    
@@ -16,7 +15,7 @@ public class MonsterController : MonoBehaviour
     {
         SpawnPosition();
 
-        InvokeRepeating("ShootingBullet", 0.0f, 1f);
+        InvokeRepeating("ShootingBullet", 0.0f, 2f);
     }
 
     void Update()
@@ -61,13 +60,17 @@ public class MonsterController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-            SoundManager.instance.SFXPlay("Explode", clip);
             Destroy(other.gameObject);
             Destroy(gameObject);
             GameObject gmObject = GameObject.Find("GameMgr");
             GameManager gm = gmObject.GetComponent<GameManager>();
             gm.currentScore++;
             gm.currentScoreUI.text = gm.currentScore.ToString();
+        }
+        else if (other.gameObject.CompareTag("Player"))
+        {
+            GameManager.instance.DecreaseLife();
+
         }
     }
 }

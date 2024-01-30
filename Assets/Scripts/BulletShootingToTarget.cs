@@ -56,9 +56,8 @@ public class BulletShootingToTarget : MonoBehaviour
 		// 플레이어와 충돌했는지 확인
 		if (other.gameObject.CompareTag("Player"))
 		{
-			Destroy(other.gameObject);
+			GameManager.instance.DecreaseLife();
 			Destroy(gameObject);
-			GameManager.instance.GameOver();
 		}
 	}
 
