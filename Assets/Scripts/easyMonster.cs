@@ -57,8 +57,8 @@ public class easyMonster : MonoBehaviour
 
 			GameObject gmObject = GameObject.Find("GameMgr");
 			GameManager gm = gmObject.GetComponent<GameManager>();
-			gm.currentScore++;
-			gm.currentScoreUI.text = gm.currentScore.ToString();
+			gm.killScore++;
+			gm.killScoreUI.text = gm.killScore.ToString();
 		}
 		else if (other.gameObject.CompareTag("Player"))
 		{

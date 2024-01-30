@@ -21,9 +21,12 @@ public class GameManager : MonoBehaviour
 	public float createTime = 3.0f;    // 몬스터의 생성 간격
 	public static GameManager instance = null;
 	public GameObject gameoverUI;
-	public TextMeshProUGUI currentScoreUI;    // 현재 점수 UI
+	public TextMeshProUGUI killScoreUI;    // 현재 킬수 UI
+	public TextMeshProUGUI timeTxt;
+	public TextMeshProUGUI scoreTxt;
+	public float startTime; // 게임시작시간
 	public Text lifeUI;  // 생명 UI
-	public int currentScore;       // 현재 점수
+	public int killScore;       // 현재 킬수
 	public int life = 3;
 	public GameObject player;
 	public int clearAbilityCount = 2; // ClearEnemiesAndBullets 기능의 사용 가능 횟수
@@ -44,12 +47,14 @@ public class GameManager : MonoBehaviour
 
 	private void Start()
 	{
+		startTime = Time.time; // 스테이지 시작 시간 초기화
 		life = 3;
 		clearAbilityCount = 2; // 시작 시 사용 가능 횟수 초기화
 		UpdateLifeUI(); // 게임 시작 시 생명 UI 업데이트
 		State = GameState.Stage1; // 게임 시작 시 상태를 Play로 변경
 		InvokeRepeating("CreateMonster", 2.0f, createTime);
 		StartCoroutine(Stage2Delay(20.0f)); // 20초 후에 Stage2로 전환
+
 	}
 
 	IEnumerator Stage2Delay(float delay)
@@ -64,6 +69,17 @@ public class GameManager : MonoBehaviour
 		{
 			GameOver();
 		}
+
+		UpdateTimeUI();
+		UpdateScore();
+	}
+
+	private void UpdateTimeUI()
+	{
+		float timeStageStart = Time.time - startTime;
+		int minutes = (int)(timeStageStart / 60);
+		int seconds = (int)(timeStageStart % 60);
+		timeTxt.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 	}
 
 	public void UseClearAbility()
@@ -84,6 +100,13 @@ public class GameManager : MonoBehaviour
             SoundManager.instance.SFXPlay3("collision", clip);
         }
     }
+
+	private void UpdateScore()
+	{
+		float timeStageStart = Time.time - startTime;
+		float score = killScore * 1 + (int)timeStageStart *0.5f; // 여기서 킬 점수와 시간을 합산
+		scoreTxt.text = score.ToString();
+	}
 
 	public void UpdateLifeUI()
 	{

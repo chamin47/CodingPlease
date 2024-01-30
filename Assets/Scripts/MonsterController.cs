@@ -69,8 +69,8 @@ public class MonsterController : MonoBehaviour
 
             GameObject gmObject = GameObject.Find("GameMgr");
             GameManager gm = gmObject.GetComponent<GameManager>();
-            gm.currentScore++;
-            gm.currentScoreUI.text = gm.currentScore.ToString();
+            gm.killScore++;
+            gm.killScoreUI.text = gm.killScoreUI.ToString();
 
 			DropRandomItem();
 		}
