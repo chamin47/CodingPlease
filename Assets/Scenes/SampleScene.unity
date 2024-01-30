@@ -3112,6 +3112,7 @@ MonoBehaviour:
   createTime: 3
   gameoverUI: {fileID: 223885277}
   currentScoreUI: {fileID: 2114764946}
+  lifeUI: {fileID: 23944589}
   currentScore: 0
   life: 3
   player: {fileID: 961731494}

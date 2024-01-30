@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public enum GameState
@@ -17,7 +18,7 @@ public class GameManager : MonoBehaviour
 	public static GameManager instance = null;
 	public GameObject gameoverUI;
 	public TextMeshProUGUI currentScoreUI;    // 현재 점수 UI
-	public TextMeshProUGUI lifeUI;  // 생명 UI
+	public Text lifeUI;  // 생명 UI
 	public int currentScore;       // 현재 점수
 	public int life = 3;
 	public GameObject player;
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
 	private void Start()
 	{
 		life = 3;
+		UpdateLifeUI(); // 게임 시작 시 생명 UI 업데이트
 		State = GameState.Play; // 게임 시작 시 상태를 Play로 변경
 		InvokeRepeating("CreateMonster", 2.0f, createTime);
 	}
@@ -48,8 +50,22 @@ public class GameManager : MonoBehaviour
 		if (life == 0)
 		{
 			GameOver();
+		}		
+	}
+
+	// 생명이 줄어들 때마다 호출
+	public void DecreaseLife()
+	{
+		if (life > 0)
+		{
+			life--;
+			UpdateLifeUI();
 		}
-		Debug.Log(life);
+	}
+
+	private void UpdateLifeUI()
+	{
+		lifeUI.text = new string('♥', life);
 	}
 
 	public void GameOver()

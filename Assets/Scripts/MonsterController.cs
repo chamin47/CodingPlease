@@ -69,7 +69,7 @@ public class MonsterController : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Player"))
         {
-            GameManager.instance.life--;
+            GameManager.instance.DecreaseLife();
 
         }
     }
