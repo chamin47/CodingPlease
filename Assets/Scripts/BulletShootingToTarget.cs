@@ -23,7 +23,7 @@ public class BulletShootingToTarget : MonoBehaviour
 	//}
 
 	GameObject target;
-	public float speed = 5.0f; // 이동 속도를 public 변수로 설정하여 에디터에서 조절 가능하게 함
+	public float speed = 3.0f; // 이동 속도를 public 변수로 설정하여 에디터에서 조절 가능하게 함
 
 	void Start()
 	{
@@ -33,13 +33,13 @@ public class BulletShootingToTarget : MonoBehaviour
 			transform.eulerAngles = new Vector3(0f, 0f, getAngle(transform.position.x, transform.position.y, target.transform.position.x, target.transform.position.y));
 		}
 
-		Invoke("DestroyBullet", 4.0f);
+		Invoke("DestroyBullet", 6.0f);
 
 	}
 
 	void Update()
 	{
-		transform.Translate(Vector2.right * speed * Time.deltaTime);
+		transform.Translate(Vector2.right.normalized * speed * Time.deltaTime);
 	}
 
 	float getAngle(float x1, float y1, float x2, float y2)

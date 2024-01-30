@@ -203,5 +203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4662bcde07b974688b2c20277ecdf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: ab297b593498a6e47ba84de770477cbe, type: 3}
   bulletPrefab: {fileID: 7558709136439900910, guid: 69b81d8844767db4fbee7e560347aeb2, type: 3}
   bulletPosition: {fileID: 137515048181328801}
