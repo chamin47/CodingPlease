@@ -163,6 +163,11 @@ public class GameManager : MonoBehaviour
 		Application.Quit();
 	}
 
+	public void ResetPlayerPrefs()
+	{
+		PlayerPrefs.DeleteAll();
+		PlayerPrefs.Save();
+	}
 
 	public void CreateMonster()
 	{
