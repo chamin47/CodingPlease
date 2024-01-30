@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("브레이크 조절")]
     [SerializeField][Range(1f, 100f)] float slow = 2f;
 
+    public AudioClip clip;
     private PlayerInputController _controller;
     private Vector2 moveVector = Vector2.zero;
     private Rigidbody2D rigidbody2D;
@@ -72,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Wall"))
         {
             GameManager.instance.GameOver();
+            SoundManager.instance.SFXPlay3("collision", clip);
         }
     }
 

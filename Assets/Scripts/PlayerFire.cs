@@ -8,6 +8,7 @@ public class PlayerFire : MonoBehaviour
     private float curTime;
 
     public AudioClip clip;
+	public AudioClip clip2;
     public GameObject bulletPrefab;
     public GameObject firePosition;
 
@@ -51,5 +52,6 @@ public class PlayerFire : MonoBehaviour
 		{
 			Destroy(bullet);
 		}
+		SoundManager.instance.SFXPlay2("Bomb", clip2);
 	}
 }
