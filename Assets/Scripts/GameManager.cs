@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
 	public int highScore;
 	public float startTime; // 게임시작시간
 	public Text lifeUI;  // 생명 UI
+	public Text helpItemTxt; // 헬프 아이템 카운트 텍스트
 	public int killScore;       // 현재 킬수
 	public int life = 3;
 	public GameObject player;
@@ -73,6 +74,7 @@ public class GameManager : MonoBehaviour
 		{
 			UpdateTimeUI();
 			UpdateScore();
+			UpdateHelpItemUI();
 			if (life == 0)
 			{
 				GameOver();
@@ -132,6 +134,11 @@ public class GameManager : MonoBehaviour
 	public void UpdateLifeUI()
 	{
         lifeUI.text = new string('♥', life);
+	}
+
+	public void UpdateHelpItemUI()
+	{
+		helpItemTxt.text = clearAbilityCount.ToString();
 	}
 
 	public void GameOver()
