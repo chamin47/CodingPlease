@@ -9,6 +9,7 @@ public class MonsterController : MonoBehaviour
     public GameObject bulletPosition;
     public GameObject lifeItemPrefab;
     public GameObject helpItemPrefab;
+    public Animator animator;
    
     Vector3 direction;
     float limitX = 9.4f;
@@ -18,6 +19,7 @@ public class MonsterController : MonoBehaviour
     void Start()
     {
         _spriteRenderer = this.gameObject.GetComponentInChildren<SpriteRenderer>();
+        animator = GetComponent<Animator>();
 
         SpawnPosition();
 
@@ -72,6 +74,8 @@ public class MonsterController : MonoBehaviour
             Destroy(other.gameObject);
             Destroy(gameObject);
 
+            animator.SetBool("isDead", true);
+
             GameObject gmObject = GameObject.Find("GameMgr");
             GameManager gm = gmObject.GetComponent<GameManager>();
             gm.killScore++;
@@ -88,7 +92,15 @@ public class MonsterController : MonoBehaviour
 
 	private void OnDestroy()
 	{
-		DropRandomItem();
+		GameObject gmObject = GameObject.Find("GameMgr");
+		if (gmObject != null)
+		{
+			GameManager gm = gmObject.GetComponent<GameManager>();
+			if (gm != null && gm.State != GameState.End)
+			{
+				DropRandomItem();
+			}
+		}
 	}
 
 	void DropRandomItem()
