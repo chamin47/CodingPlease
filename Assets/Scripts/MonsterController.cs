@@ -67,5 +67,10 @@ public class MonsterController : MonoBehaviour
             gm.currentScore++;
             gm.currentScoreUI.text = gm.currentScore.ToString();
         }
+        else if (other.gameObject.CompareTag("Player"))
+        {
+            GameManager.instance.life--;
+
+        }
     }
 }

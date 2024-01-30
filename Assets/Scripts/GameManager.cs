@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 	public static GameManager instance = null;
 	public GameObject gameoverUI;
 	public TextMeshProUGUI currentScoreUI;    // 현재 점수 UI
+	public TextMeshProUGUI lifeUI;  // 생명 UI
 	public int currentScore;       // 현재 점수
 	public int life = 3;
 	public GameObject player;
@@ -48,6 +49,7 @@ public class GameManager : MonoBehaviour
 		{
 			GameOver();
 		}
+		Debug.Log(life);
 	}
 
 	public void GameOver()
