@@ -24,4 +24,29 @@ public class PlayerFire : MonoBehaviour
         }
         curTime -= Time.deltaTime;
     }
+
+	private void Update()
+	{
+		// alt를 누르고 사용 가능 횟수가 남아있는 경우
+		if (Input.GetKeyDown(KeyCode.LeftAlt) && GameManager.instance.clearAbilityCount > 0)
+		{
+			ClearEnemiesAndBullets();
+			GameManager.instance.UseClearAbility(); // 사용 횟수 감소
+		}
+	}
+
+	private void ClearEnemiesAndBullets()
+	{
+		GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+		foreach (var enemy in enemies)
+		{
+			Destroy(enemy);
+		}
+
+		GameObject[] bullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
+		foreach (var bullet in bullets)
+		{
+			Destroy(bullet);
+		}
+	}
 }
