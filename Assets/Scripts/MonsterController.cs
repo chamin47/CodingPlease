@@ -15,7 +15,7 @@ public class MonsterController : MonoBehaviour
     {
         SpawnPosition();
 
-        InvokeRepeating("ShootingBullet", 0.0f, 0.5f);
+        InvokeRepeating("ShootingBullet", 0.0f, 2f);
     }
 
     void Update()
