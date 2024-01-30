@@ -3116,6 +3116,7 @@ MonoBehaviour:
   currentScore: 0
   life: 3
   player: {fileID: 961731494}
+  clearAbilityCount: 2
 --- !u!4 &1580297026
 Transform:
   m_ObjectHideFlags: 0

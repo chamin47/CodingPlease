@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 	public int currentScore;       // 현재 점수
 	public int life = 3;
 	public GameObject player;
+	public int clearAbilityCount = 2; // ClearEnemiesAndBullets 기능의 사용 가능 횟수
 
 	private void Awake()
 	{
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
 	private void Start()
 	{
 		life = 3;
+		clearAbilityCount = 2; // 시작 시 사용 가능 횟수 초기화
 		UpdateLifeUI(); // 게임 시작 시 생명 UI 업데이트
 		State = GameState.Play; // 게임 시작 시 상태를 Play로 변경
 		InvokeRepeating("CreateMonster", 2.0f, createTime);
@@ -53,6 +55,14 @@ public class GameManager : MonoBehaviour
 		}		
 	}
 
+	public void UseClearAbility()
+	{
+		if (clearAbilityCount > 0)
+		{
+			clearAbilityCount--;
+		}
+	}
+
 	// 생명이 줄어들 때마다 호출
 	public void DecreaseLife()
 	{
@@ -63,7 +73,7 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	private void UpdateLifeUI()
+	public void UpdateLifeUI()
 	{
 		lifeUI.text = new string('♥', life);
 	}
@@ -92,6 +102,5 @@ public class GameManager : MonoBehaviour
 		{
 			Instantiate(monster);
 		}
-
 	}
 }
