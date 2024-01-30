@@ -3113,6 +3113,8 @@ MonoBehaviour:
   gameoverUI: {fileID: 223885277}
   currentScoreUI: {fileID: 2114764946}
   currentScore: 0
+  life: 3
+  player: {fileID: 961731494}
 --- !u!4 &1580297026
 Transform:
   m_ObjectHideFlags: 0
