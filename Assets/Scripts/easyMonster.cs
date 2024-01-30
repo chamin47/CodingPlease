@@ -11,10 +11,14 @@ public class easyMonster : MonoBehaviour
 	float limitX = 9.4f;
 	float speed = 3f;
 
-	void Start()
+    SpriteRenderer _spriteRenderer;
+
+
+    void Start()
 	{
+        _spriteRenderer = GetComponent<SpriteRenderer>();
 		SpawnPosition();
-	}
+    }
 
 	void Update()
 	{
@@ -36,7 +40,8 @@ public class easyMonster : MonoBehaviour
 			transform.position = new Vector3(x, y, 0);
 
 			direction = new Vector3(-speed, 0, 0);
-		}
+			_spriteRenderer.flipX = true;
+        }
 		else
 		{
 			float x = randomX[1];

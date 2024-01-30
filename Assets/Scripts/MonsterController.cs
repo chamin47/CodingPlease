@@ -13,9 +13,12 @@ public class MonsterController : MonoBehaviour
     Vector3 direction;
     float limitX = 9.4f;
     float speed = 3f;
+    SpriteRenderer _spriteRenderer;
 
     void Start()
     {
+        _spriteRenderer = this.gameObject.GetComponentInChildren<SpriteRenderer>();
+
         SpawnPosition();
 
         InvokeRepeating("ShootingBullet", 0f, 1f);
@@ -41,6 +44,8 @@ public class MonsterController : MonoBehaviour
             transform.position = new Vector3(x, y, 0);
 
             direction = new Vector3(-speed, 0, 0);
+           
+            _spriteRenderer.flipX = false;
         }
         else
         {
