@@ -3515,6 +3515,8 @@ MonoBehaviour:
   killScoreUI: {fileID: 796813793}
   timeTxt: {fileID: 22134648}
   scoreTxt: {fileID: 2114764946}
+  highScoreUI: {fileID: 1206948159}
+  highScore: 0
   startTime: 0
   lifeUI: {fileID: 23944589}
   killScore: 0
