@@ -70,9 +70,9 @@ public class MonsterController : MonoBehaviour
             GameObject gmObject = GameObject.Find("GameMgr");
             GameManager gm = gmObject.GetComponent<GameManager>();
             gm.killScore++;
-            gm.killScoreUI.text = gm.killScoreUI.ToString();
+            gm.killScoreUI.text = gm.killScore.ToString();
 
-			DropRandomItem();
+			
 		}
         else if (other.gameObject.CompareTag("Player"))
         {
@@ -80,6 +80,11 @@ public class MonsterController : MonoBehaviour
 
         }
     }
+
+	private void OnDestroy()
+	{
+		DropRandomItem();
+	}
 
 	void DropRandomItem()
 	{
