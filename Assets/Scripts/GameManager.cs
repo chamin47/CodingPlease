@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.IO;
 
 public enum GameState
 {
@@ -87,7 +88,7 @@ public class GameManager : MonoBehaviour
 
 	public void UpdateLifeUI()
 	{
-		lifeUI.text = new string('♥', life);
+        lifeUI.text = new string('♥', life);
 	}
 
 	public void GameOver()
@@ -102,11 +103,16 @@ public class GameManager : MonoBehaviour
 		State = GameState.Stage1;  // 게임 재시작 시 상태를 Play로 변경
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
+	public void Menu()
+	{
+		SceneManager.LoadScene("StartMenu");
+	}
 
 	public void ExitGame()
 	{
 		Application.Quit();
 	}
+
 
 	public void CreateMonster()
 	{

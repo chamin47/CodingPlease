@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8558774713225366415
 SpriteRenderer:
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c780832398f1c37408082d317ce712f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: c48a972d3d024c2408a3331750786a29, type: 3}
 --- !u!70 &7106182452847361448
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
