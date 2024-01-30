@@ -2,11 +2,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public enum GameState
 {
 	Ready,
-	Play,
+	Stage1,
+	Stage2,
 	End
 }
 
@@ -15,6 +17,7 @@ public class GameManager : MonoBehaviour
 	public AudioClip clip;
 	public GameState State = GameState.Ready; // 게임 상태 초기화
 	public GameObject monster;
+	public GameObject easyMonster;
 	public float createTime = 3.0f;    // 몬스터의 생성 간격
 	public static GameManager instance = null;
 	public GameObject gameoverUI;
@@ -44,8 +47,15 @@ public class GameManager : MonoBehaviour
 		life = 3;
 		clearAbilityCount = 2; // 시작 시 사용 가능 횟수 초기화
 		UpdateLifeUI(); // 게임 시작 시 생명 UI 업데이트
-		State = GameState.Play; // 게임 시작 시 상태를 Play로 변경
+		State = GameState.Stage1; // 게임 시작 시 상태를 Play로 변경
 		InvokeRepeating("CreateMonster", 2.0f, createTime);
+		StartCoroutine(Stage2Delay(20.0f)); // 20초 후에 Stage2로 전환
+	}
+
+	IEnumerator Stage2Delay(float delay)
+	{
+		yield return new WaitForSeconds(delay);
+		State = GameState.Stage2;
 	}
 
 	private void Update()
@@ -53,7 +63,7 @@ public class GameManager : MonoBehaviour
 		if (life == 0)
 		{
 			GameOver();
-		}		
+		}
 	}
 
 	public void UseClearAbility()
@@ -89,7 +99,7 @@ public class GameManager : MonoBehaviour
 
 	public void RestartGame()
 	{
-		State = GameState.Play;  // 게임 재시작 시 상태를 Play로 변경
+		State = GameState.Stage1;  // 게임 재시작 시 상태를 Play로 변경
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
@@ -100,9 +110,14 @@ public class GameManager : MonoBehaviour
 
 	public void CreateMonster()
 	{
-		if (State == GameState.Play) // 게임 상태가 Play일 때만 몬스터 생성
+		if (State == GameState.Stage1) // 게임 상태가 Stage1일 때만 몬스터 생성
 		{
-			Instantiate(monster);
+			Instantiate(easyMonster);
 		}
-	}
+		else if (State == GameState.Stage2)
+		{
+			Instantiate(monster); // Stage2 상태에서는 monster 생성
+			Instantiate(easyMonster);
+		}     
+    }
 }
