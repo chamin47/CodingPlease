@@ -6,6 +6,7 @@ public class easyMonster : MonoBehaviour
 {
 	public AudioClip clip;
 	public GameObject bulletPosition;
+	public Animator animator;
 
 	Vector3 direction;
 	float limitX = 9.4f;
@@ -17,6 +18,7 @@ public class easyMonster : MonoBehaviour
     void Start()
 	{
         _spriteRenderer = GetComponent<SpriteRenderer>();
+		animator = GetComponent<Animator>();
 		SpawnPosition();
     }
 
@@ -59,6 +61,8 @@ public class easyMonster : MonoBehaviour
 			SoundManager.instance.SFXPlay("Explode", clip);
 			Destroy(other.gameObject);
 			Destroy(gameObject);
+
+			animator.SetBool("isDead", true);
 
 			GameObject gmObject = GameObject.Find("GameMgr");
 			GameManager gm = gmObject.GetComponent<GameManager>();

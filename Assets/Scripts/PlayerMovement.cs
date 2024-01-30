@@ -21,11 +21,11 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip clip;
     private PlayerInputController _controller;
     private Vector2 moveVector = Vector2.zero;
-    private Rigidbody2D rigidbody2D;
+    private Rigidbody2D _rigidbody2D;
 
     private void Awake()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
         _controller = GetComponent<PlayerInputController>();
     }
 
@@ -59,11 +59,11 @@ public class PlayerMovement : MonoBehaviour
             // 부스트, 브레이크 기능 구현
             if (vector.y > 0)
             {
-                rigidbody2D.velocity = transform.right * (speed + fast);
+                _rigidbody2D.velocity = transform.right * (speed + fast);
             }
             else if (vector.y < 0)
             {
-                rigidbody2D.velocity = transform.right * (speed - slow);
+                _rigidbody2D.velocity = transform.right * (speed - slow);
             }
         }
     }
@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigidbody2D.velocity = transform.right * speed;
+        _rigidbody2D.velocity = transform.right * speed;
         Movement(moveVector);
     }
 }
