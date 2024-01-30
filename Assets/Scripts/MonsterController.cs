@@ -6,6 +6,8 @@ public class MonsterController : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public GameObject bulletPosition;
+    public GameObject lifeItemPrefab;
+    public GameObject helpItemPrefab;
    
     Vector3 direction;
     float limitX = 9.4f;
@@ -62,15 +64,43 @@ public class MonsterController : MonoBehaviour
         {
             Destroy(other.gameObject);
             Destroy(gameObject);
+
             GameObject gmObject = GameObject.Find("GameMgr");
             GameManager gm = gmObject.GetComponent<GameManager>();
             gm.currentScore++;
             gm.currentScoreUI.text = gm.currentScore.ToString();
-        }
+
+			DropRandomItem();
+		}
         else if (other.gameObject.CompareTag("Player"))
         {
             GameManager.instance.DecreaseLife();
 
         }
     }
+
+	void DropRandomItem()
+	{
+		int randomItem = Random.Range(0, 3); // 0, 1, 2 중 하나를 랜덤으로 선택
+
+		GameObject itemToDrop = null;
+
+		if (randomItem == 0)
+		{
+			// 아무 아이템도 드롭하지 않음
+		}
+		else if (randomItem == 1)
+		{
+			itemToDrop = lifeItemPrefab;
+		}
+		else if (randomItem == 2)
+		{
+			itemToDrop = helpItemPrefab;
+		}
+
+		if (itemToDrop != null)
+		{
+			Instantiate(itemToDrop, transform.position, Quaternion.identity);
+		}
+	}
 }

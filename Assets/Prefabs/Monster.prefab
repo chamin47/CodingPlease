@@ -205,3 +205,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7558709136439900910, guid: 69b81d8844767db4fbee7e560347aeb2, type: 3}
   bulletPosition: {fileID: 137515048181328801}
+  lifeItemPrefab: {fileID: 4164629437556602505, guid: 0eb8619b777aa17449a4fb577b3e879a, type: 3}
+  helpItemPrefab: {fileID: 4967790332555763799, guid: db87f6f21cd15204492da49cf1203080, type: 3}
