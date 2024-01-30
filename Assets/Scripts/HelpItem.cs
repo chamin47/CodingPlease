@@ -21,7 +21,6 @@ public class HelpItem : MonoBehaviour
             {
                 GameManager.instance.clearAbilityCount++;
                 Destroy(gameObject);
-                Debug.Log(GameManager.instance.clearAbilityCount);
             }
             else
             {

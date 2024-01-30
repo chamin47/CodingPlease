@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
-using System.IO;
 
 public enum GameState
 {
@@ -25,6 +24,8 @@ public class GameManager : MonoBehaviour
 	public TextMeshProUGUI killScoreUI;    // 현재 킬수 UI
 	public TextMeshProUGUI timeTxt;
 	public TextMeshProUGUI scoreTxt;
+	public TextMeshProUGUI highScoreUI;
+	public int highScore;
 	public float startTime; // 게임시작시간
 	public Text lifeUI;  // 생명 UI
 	public int killScore;       // 현재 킬수
@@ -55,6 +56,8 @@ public class GameManager : MonoBehaviour
 		State = GameState.Stage1; // 게임 시작 시 상태를 Play로 변경
 		InvokeRepeating("CreateMonster", 2.0f, createTime);
 		StartCoroutine(Stage2Delay(20.0f)); // 20초 후에 Stage2로 전환
+		highScore = PlayerPrefs.GetInt("HighScore", 0);
+		UpdateHighScoreUI();
 
 	}
 
@@ -66,15 +69,16 @@ public class GameManager : MonoBehaviour
 
 	private void Update()
 	{
-		if (life == 0)
+		if (State != GameState.End)
 		{
-			GameOver();
+			UpdateTimeUI();
+			UpdateScore();
+			if (life == 0)
+			{
+				GameOver();
+			}
 		}
-
-		UpdateTimeUI();
-		UpdateScore();
 	}
-
 	private void UpdateTimeUI()
 	{
 		float timeStageStart = Time.time - startTime;
@@ -107,6 +111,22 @@ public class GameManager : MonoBehaviour
 		float timeStageStart = Time.time - startTime;
 		float score = killScore * 1 + (int)timeStageStart *0.5f; // 여기서 킬 점수와 시간을 합산
 		scoreTxt.text = score.ToString();
+
+		// 현재 점수가 최고 점수보다 높으면 업데이트
+		if (score > highScore)
+		{
+			highScore = (int)score;
+			PlayerPrefs.SetInt("HighScore", highScore);
+			UpdateHighScoreUI();
+		}
+	}
+
+	private void UpdateHighScoreUI()
+	{
+		if (highScoreUI != null)
+		{
+			highScoreUI.text = highScore.ToString();
+		}
 	}
 
 	public void UpdateLifeUI()
